@@ -4,10 +4,10 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 
 app = Flask(__name__)
 
-# Enable CORS with specific settings to handle preflight requests
-CORS(app, resources={r"/*": {"origins": "https://chshankar19.github.io"}}, supports_credentials=True)
+# Enable CORS with explicit settings
+cors = CORS(app, resources={r"/*": {"origins": "https://chshankar19.github.io"}}, supports_credentials=True)
 
-# Load your language model here (example: GPT-Neo)
+# Load the model
 model_name = "EleutherAI/gpt-neo-1.3B"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(model_name)
@@ -24,6 +24,14 @@ def chat():
     prompt = data.get('prompt')
     response = generate_response(prompt)
     return jsonify({'response': response})
+
+# Explicitly handle OPTIONS request (preflight)
+@app.after_request
+def after_request(response):
+    response.headers.add('Access-Control-Allow-Origin', 'https://chshankar19.github.io')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+    response.headers.add('Access-Control-Allow-Methods', 'GET,POST,OPTIONS')
+    return response
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
