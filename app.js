@@ -26,8 +26,8 @@ function displayBotMessage(message) {
 }
 
 async function getChatbotResponse(userInput) {
-    const response = await fetch('https://jarvis-2pdm.onrender.com', {
-        method: 'POST',
+    const response = await fetch('http://127.0.0.1:5000/chat', {
+        method: 'POST',  // Ensure it's POST, not GET
         headers: {
             'Content-Type': 'application/json',
         },
@@ -36,3 +36,5 @@ async function getChatbotResponse(userInput) {
     const data = await response.json();
     displayBotMessage(data.response);
 }
+
+
