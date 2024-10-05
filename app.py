@@ -3,7 +3,9 @@ from flask_cors import CORS
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+
+# Enable CORS with specific settings to handle preflight requests
+CORS(app, resources={r"/*": {"origins": "https://chshankar19.github.io"}}, supports_credentials=True)
 
 # Load your language model here (example: GPT-Neo)
 model_name = "EleutherAI/gpt-neo-1.3B"
