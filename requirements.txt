@@ -1,5 +1,1 @@
-Flask
-gunicorn
-torch
-transformers
-flask-cors
+pip freeze > requirements.txt
