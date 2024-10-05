@@ -26,7 +26,7 @@ function displayBotMessage(message) {
 }
 
 async function getChatbotResponse(userInput) {
-    const response = await fetch('https://chatbot-backend-fy6a.onrender.com', {
+    const response = await fetch('https://jarvis-2pdm.onrender.com', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
