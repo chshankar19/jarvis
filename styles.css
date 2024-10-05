@@ -1,0 +1,118 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f9fc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    width: 450px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Title Styles */
+h1 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Chat Container Styles */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    justify-content: space-between;
+}
+
+#chat-box {
+    flex-grow: 1;
+    overflow-y: scroll;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f4f7fa;
+}
+
+/* Chat Bubbles */
+.message {
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    max-width: 70%;
+    font-size: 14px;
+    word-wrap: break-word;
+}
+
+.user-message {
+    background-color: #007bff;
+    color: #fff;
+    text-align: right;
+    float: right;
+    border-bottom-right-radius: 0;
+}
+
+.bot-message {
+    background-color: #f0f0f0;
+    color: #333;
+    text-align: left;
+    float: left;
+    border-bottom-left-radius: 0;
+}
+
+/* Clear Floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Input Section Styles */
+.input-container {
+    display: flex;
+    margin-top: 10px;
+}
+
+#user-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    outline: none;
+    font-size: 14px;
+}
+
+#send-btn {
+    padding: 10px 20px;
+    background-color: #28a745; /* Change the button color */
+    color: white;
+    border: none;
+    border-radius: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#send-btn:hover {
+    background-color: #218838;
+}
+
+/* Scrollbar Customization */
+#chat-box::-webkit-scrollbar {
+    width: 8px;
+}
+
+#chat-box::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 10px;
+}
